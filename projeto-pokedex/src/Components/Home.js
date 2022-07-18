@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
+import * as P from './styled'
 import axios from 'axios'
 
 export default function Home() {
@@ -40,6 +41,11 @@ export default function Home() {
         <button onClick={detalhes}> Detalhes </button>
         <button onClick={pokedex}> Pokedex </button>
 
+      <P.Container>
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+      </P.Container>
+
+      <P.ContainerCard>Titulo Qualquer</P.ContainerCard>
       
           <img src={image} />
 

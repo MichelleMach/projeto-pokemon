@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import * as P from './styled'
 import axios from 'axios'
 
 export default function Home() {
-  const [pokemons, setPokemon] = useState([])
-  const [image, setImage] = useState([])
-  const [contador, setContador] = useState(1)
+  const [listaPokemon, setListaPokemon] = useState([])
+  const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
-  const params = useParams()
 
   const detalhes = () => {
     navigate("/detalhes")
@@ -20,31 +18,37 @@ export default function Home() {
 
 
   useEffect(() => {
-    // if (contador < 20) {
-    //   setContador(contador + 1)
-    // } else {
-    //   setContador(contador)
-    // };
-    getPokemons()
-  }, [contador])
-
-
-  const getPokemons = () => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${contador}`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon`)
       .then((res) => {
-        console.log(contador)
-        setImage(res.data.sprites.front_default)
-
+        setListaPokemon(res.data.results)
+        console.log(res.data.results)
+      }).catch((err) => {
+        console.log(err.response)
       })
-      .catch((err) => {
-        console.log(err)
+  }, [])
 
-      })
 
-  }
+  useEffect(() => {
+    const pokemonLista = []
+    listaPokemon.forEach((poke) => {
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
+        .then((res) => {
+         pokemonLista.push(res.data)
+         if(pokemonLista.length ===20) {
+          setPokemon(pokemonLista)
+         }
+        }).catch((err) => {
+          console.log(err.response)
+        })
+    })
+  
+  }, [listaPokemon])
+
+  console.log(pokemon)
+
 
   return (
-    <>
+    <div>
 
       <button onClick={detalhes}> Detalhes </button>
       <button onClick={pokedex}> Pokedex </button>
@@ -55,17 +59,20 @@ export default function Home() {
 
       <P.ContainerCard>Titulo Qualquer</P.ContainerCard>
 
-      <img src={image} />
-
-      {/* {
-        image.map((poke) => {
+      {
+        pokemon.map((poke) => {
           return (
-          <img src={poke} />)
+            <div> 
+              <img src={poke.sprites.front_default} />
+              {console.log(poke.sprites)}
+            </div>
+          )
         })
-      } */}
+      }
+
+      {/* {ListarPokemon} */}
 
 
-
-    </>
+    </div>
   )
 }

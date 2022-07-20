@@ -62,7 +62,7 @@ backface-visibility: hidden;
 const Teste = styled.div`
   width: 32%;
   height: 270px;
-  perspective: 10000px;
+  
   padding: 10px;
   background-color: blue ;
   
@@ -74,6 +74,15 @@ border: 1px solid;
 const Name = styled.p`
 font-size: large;
 color: lime;
+`
+
+const NovoContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+width: 300px;
+height: 300px;
+
 `
 
 export default function Detalhes() {
@@ -123,33 +132,15 @@ export default function Detalhes() {
       </P.Container>
 
       <P.ContainerCard>Titulo Qualquer</P.ContainerCard>
-      <Teste>
-
-
-
-        {
+      <NovoContainer>
+      {
           pokemon.map((poke) => {
             return (
-
-              <ContainerCardB>
+              <ContainerCard>
                 <CardA>
                   <Img src={poke.sprites.other.dream_world.front_default} />
                   <Name><strong>{poke.name.toUpperCase()}</strong></Name>
                 </CardA>
-              </ContainerCardB>
-
-
-            )
-          })
-        }
-
-
-
-        {
-          pokemon.map((poke) => {
-            return (
-
-              <ContainerCard>
                 <CardB>
                   <p>{poke.stats[0].stat.name} : {poke.stats[0].base_stat} </p>
                   <p>{poke.stats[1].stat.name} : {poke.stats[1].base_stat} </p>
@@ -161,13 +152,13 @@ export default function Detalhes() {
                   <p>ability: {poke.abilities[0].ability.name}  </p>
                 </CardB>
               </ContainerCard>
-
             )
           })
         }
+        </NovoContainer>
+      </div>
 
-      </Teste>
+   
 
-    </div>
   )
-}
+        }

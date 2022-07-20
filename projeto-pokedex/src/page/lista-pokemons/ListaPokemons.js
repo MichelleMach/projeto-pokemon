@@ -57,18 +57,22 @@ export default function Home() {
         <ion-icon size="large" name="arrow-back-outline"></ion-icon>
       </P.Container>
 
-      <P.ContainerCard>Titulo Qualquer</P.ContainerCard>
+      {/* <P.ContainerCard>Titulo Qualquer</P.ContainerCard> */}
 
+    <P.Container>
       {
         pokemon.map((poke) => {
           return (
-            <div> 
-              <img src={poke.sprites.front_default} />
-              {console.log(poke.sprites)}
-            </div>
+            <P.ContainerCard> 
+              <img src={poke.sprites.other.dream_world.front_default} />
+              <button>Adicionar a Pokedex</button>
+              <button>Ver Detalhes</button>
+              {/* {console.log(poke.sprites)} */}
+            </P.ContainerCard>
           )
         })
       }
+      </P.Container>
 
       {/* {ListarPokemon} */}
 

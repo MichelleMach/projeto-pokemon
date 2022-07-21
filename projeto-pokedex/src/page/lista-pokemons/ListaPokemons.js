@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Menu from '../../Components/menu/Menu'
+import Menu from '../../components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'

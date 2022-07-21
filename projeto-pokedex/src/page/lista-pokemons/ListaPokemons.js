@@ -7,6 +7,7 @@ import axios from 'axios'
 export default function Home() {
   const [listaPokemon, setListaPokemon] = useState([])
   const [pokemon, setPokemon] = useState([])
+  const [pokemonAdicionado, setPokemonAdicionado] = useState([])
   const navigate = useNavigate()
 
   const detalhes = () => {
@@ -22,7 +23,7 @@ export default function Home() {
     axios.get(`https://pokeapi.co/api/v2/pokemon?limit-288offset=8`)
       .then((res) => {
         setListaPokemon(res.data.results)
-        console.log(res.data.results)
+        // console.log(res.data.results)
       }).catch((err) => {
         console.log(err.response)
       })
@@ -45,22 +46,17 @@ export default function Home() {
 
   }, [listaPokemon])
 
-  console.log(pokemon)
-
+  const adicionarPokemon = (poke) => {
+    console.log(poke)
+    setPokemonAdicionado([...pokemonAdicionado, poke])
+  }
 
   return (
     <div>
 
-      <Menu />
+      <Menu pokemonAdicionado={pokemonAdicionado}/>
 
       <button onClick={detalhes}> Detalhes </button>
-      <button onClick={pokedex}> Pokedex </button>
-
-      {/* <P.Container>
-        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
-      </P.Container> */}
-
-      {/* <P.ContainerCard>Titulo Qualquer</P.ContainerCard> */}
 
       <P.Container>
 
@@ -71,7 +67,7 @@ export default function Home() {
                 <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
 
                 <P.Botoes>
-                  <P.BotaoAdicionar>Adicionar a Pokedex</P.BotaoAdicionar>
+                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
                   <P.BotaoDetalhe>Ver Detalhes</P.BotaoDetalhe>
                 </P.Botoes>
 

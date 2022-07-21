@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ListarPokemon from './page/lista-pokemons/ListaPokemons'
 import Detalhes from './Components/Detalhes'
-import Pokedex from './Components/Pokedex'
+import Pokedex from './page/pokedex/Pokedex'
 
 export default function Router() {
  

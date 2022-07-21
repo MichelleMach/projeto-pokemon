@@ -59,14 +59,6 @@ height: 1000%;
 backface-visibility: hidden;
 `
 
-const Teste = styled.div`
-  width: 32%;
-  height: 270px;
-  
-  padding: 10px;
-  background-color: blue ;
-  
-`
 const Img = styled.img`
 width: 200px;
 border: 1px solid;

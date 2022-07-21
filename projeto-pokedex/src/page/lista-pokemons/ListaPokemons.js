@@ -7,15 +7,16 @@ import axios from 'axios'
 export default function Home() {
   const [listaPokemon, setListaPokemon] = useState([])
   const [pokemon, setPokemon] = useState([])
+  const [pokemonAdicionado, setPokemonAdicionado] = useState([])
   const navigate = useNavigate()
 
-  const detalhes = () => {
-    navigate("/detalhes")
-  }
+  // const detalhes = () => {
+  //   navigate("/detalhes")
+  // }
 
-  const pokedex = () => {
-    navigate("/pokedex")
-  }
+  // const pokedex = () => {
+  //   navigate("/pokedex")
+  // }
 
 
   useEffect(() => {
@@ -45,19 +46,19 @@ export default function Home() {
 
   }, [listaPokemon])
 
-  console.log(pokemon)
+  const adicionarPokemon = (poke) => {
+    console.log(poke)
+    setPokemonAdicionado([...pokemonAdicionado, poke])
+  }
+
+  // console.log(pokemon)
 
 
   return (
     <div>
 
-      <Menu />
+<Menu pokemonAdicionado={pokemonAdicionado}/>
 
-      <button onClick={detalhes}> Detalhes </button>
-      <button onClick={pokedex}> Pokedex </button>
-
-  
-      {/* <P.Container> */}
       <P.ContainerCard>
         {
           pokemon.map((poke) => {
@@ -69,8 +70,7 @@ export default function Home() {
                 
                 <P.Botoes>
                 <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
-                  {/* <P.BotaoDetalhe>Ver Detalhes</P.BotaoDetalhe> */}
-                  <P.BotaoAdicionar>Adicionar a Pokedex</P.BotaoAdicionar>
+                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
                 </P.Botoes>
               </P.CardA>
 
@@ -93,9 +93,6 @@ export default function Home() {
           })
         }
          </P.ContainerCard>
-      {/* </P.Container> */}
-
-      {/* {ListarPokemon} */}
 
 
     </div>

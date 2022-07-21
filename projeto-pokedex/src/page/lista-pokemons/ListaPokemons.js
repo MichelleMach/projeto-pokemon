@@ -58,11 +58,13 @@ export default function Home() {
 
   return (
     <div>
-           <Stack spacing={2}>
-      <Pagination count={30} onChange={onChange}/>
-          </Stack>
+          
 
 <Menu pokemonAdicionado={pokemonAdicionado}/>
+
+<Stack spacing={2}>
+      <Pagination count={30} onChange={onChange}/>
+          </Stack>
 
       <P.ContainerCard>
         {

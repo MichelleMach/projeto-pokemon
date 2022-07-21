@@ -43,6 +43,7 @@ height: 1000%;
 backface-visibility: hidden;
 `
 
+
 const Img = styled.img`
 width: 200px;
 border: 1px solid;
@@ -51,15 +52,21 @@ const Name = styled.p`
 font-size: large;
 color: lime;
 `
+
+
+
+
 const NovoContainer = styled.div`
 display: flex;
 justify-content: space-evenly;
 flex-wrap: wrap;
+
 width: 230px;
 height: 350px;
 margin:40px 20px;
 border: 3px solid lime;
 `
+
 export default function Detalhes() {
   const navigate = useNavigate()
   const [listaPokemon, setListaPokemon] = useState([])
@@ -102,7 +109,11 @@ export default function Detalhes() {
       {
           pokemon.map((poke) => {
             return (
+
               <ContainerTodo>
+
+              <ContainerCard>
+
                 <CardA>
                   <Img src={poke.sprites.other.dream_world.front_default} />
                   <Name><strong>{poke.name.toUpperCase()}</strong></Name>
@@ -117,11 +128,16 @@ export default function Detalhes() {
                   <p>type: {poke.types[0].type.name}  </p>
                   <p>ability: {poke.abilities[0].ability.name}  </p>
                 </CardB>
+
               </ContainerTodo>
+
+              </ContainerCard>
+
             )
           })
         }
         </NovoContainer>
       </div>
+
   )
         }

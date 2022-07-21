@@ -56,30 +56,44 @@ export default function Home() {
       <button onClick={detalhes}> Detalhes </button>
       <button onClick={pokedex}> Pokedex </button>
 
-      {/* <P.Container>
-        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
-      </P.Container> */}
-
-      {/* <P.ContainerCard>Titulo Qualquer</P.ContainerCard> */}
-
-      <P.Container>
-
+  
+      {/* <P.Container> */}
+      <P.ContainerCard>
         {
           pokemon.map((poke) => {
             return (
-              <P.ContainerCard>
+              <P.CardTodo>
+                
+              <P.CardA>
                 <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
-
+                
                 <P.Botoes>
+                <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
+                  {/* <P.BotaoDetalhe>Ver Detalhes</P.BotaoDetalhe> */}
                   <P.BotaoAdicionar>Adicionar a Pokedex</P.BotaoAdicionar>
-                  <P.BotaoDetalhe>Ver Detalhes</P.BotaoDetalhe>
                 </P.Botoes>
+              </P.CardA>
 
-              </P.ContainerCard>
+                <P.CardB>
+                
+                  <P.Paragrafos>
+                  <p>Habilidades</p>
+                  <br/>  
+                  <p>Resistência : {poke.stats[0].base_stat} </p>
+                  <p>Ataque : {poke.stats[1].base_stat} </p>
+                  <p>Defesa : {poke.stats[2].base_stat} </p>
+                  <p>Ataque-especial : {poke.stats[3].base_stat} </p>
+                  <p>Defesa-especial : {poke.stats[4].base_stat} </p>
+                  <p>Velocidade : {poke.stats[5].base_stat} </p>
+                  <p>Tipo: {poke.types[0].type.name}  </p>
+                  </P.Paragrafos> 
+                </P.CardB>
+                </P.CardTodo>
             )
           })
         }
-      </P.Container>
+         </P.ContainerCard>
+      {/* </P.Container> */}
 
       {/* {ListarPokemon} */}
 

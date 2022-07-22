@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Menu from '../../components/menu/Menu'
+import Menu from '../../Components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
@@ -16,30 +16,6 @@ export default function Home() {
   const navigate = useNavigate()
 
   const [pgn, setpgn] = useState(1)
-  // const [options, setOptions] = {    title: 'Habilidades'}
-  // const [data, setData] = [
-  //   [`'Ataque', ${listaPokemon.stats[1].base_stat}`],
-  //   [`'Defesa', ${pokemon.stats[2].base_stat}`],
-  //  console.log(data)
-  // ]
-
-
-  const conta = 22 * (pgn - 1)
-
-
-  useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=21&offset=${conta}`)
-      .then((res) => {
-        setListaPokemon(res.data.results)
-        console.log(res.data.results)
-      }).catch((err) => {
-        console.log(err.response)
-      })
-  }, [pgn])
-
- 
-
-
 
   useEffect(() => {
     const pokemonLista = []
@@ -62,10 +38,6 @@ export default function Home() {
     console.log(poke)
     setters.setPokedex([...states.pokedex, poke])
   }
-
-
-
-  // console.log(pokemon)
 
   const onChange = (e,value) => {
     setters.setpgn(value)

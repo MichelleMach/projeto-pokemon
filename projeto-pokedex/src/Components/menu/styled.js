@@ -4,12 +4,12 @@ export const Menu = styled.div `
     display:flex;
     align-self:center;
     justify-content:center;
-    /* margin-top:20px; */
+    margin-top:20px;
     padding:20px;
     background-color: #FBF03E;
     /* border-top:3px solid #474748;
     border-bottom:3px solid #474748; */
-    height:80px;
+    height:20px;
 
 `
 

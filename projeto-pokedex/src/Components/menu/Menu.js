@@ -16,16 +16,6 @@ const Menu = (props) => {
         navigate("/pokedex")
       }
 
-    // switch(paginaAtual) {
-    //     case '/':
-    //         return "abobora";
-    // //   console.log(props.pokemonAdicionado)
-
-
-    //     case '/pokedex':
-    //         return "batata"
-    // }
-
 
 
   return (

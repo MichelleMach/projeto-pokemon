@@ -1,37 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Menu from '../../Components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
 import Stack from '@mui/material/Stack'
-
+import { GlobalContext } from '../../Context/GlobalStateContext'
 
 export default function Home() {
-  const [listaPokemon, setListaPokemon] = useState([])
+  const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
-  const [pokemonAdicionado, setPokemonAdicionado] = useState([])
   const navigate = useNavigate()
-  const [pgn, setpgn] = useState(1)
-  
-  
-  const conta = 22*(pgn-1)
-
-
-  useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=21&offset=${conta}`)
-      .then((res) => {
-        setListaPokemon(res.data.results)
-        console.log(res.data.results)
-      }).catch((err) => {
-        console.log(err.response)
-      })
-  }, [pgn])
+ 
 
 
   useEffect(() => {
     const pokemonLista = []
-    listaPokemon.forEach((poke) => {
+    states.listaPokemon.forEach((poke) => {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
         .then((res) => {
           pokemonLista.push(res.data)
@@ -43,11 +28,11 @@ export default function Home() {
         })
     })
 
-  }, [listaPokemon])
+  }, [states.listaPokemon])
 
   const adicionarPokemon = (poke) => {
     console.log(poke)
-    setPokemonAdicionado([...pokemonAdicionado, poke])
+    setters.setPokedex([...states.pokedex, poke])
   }
 
   // console.log(pokemon)
@@ -60,7 +45,7 @@ export default function Home() {
     <div>
           
 
-<Menu pokemonAdicionado={pokemonAdicionado}/>
+<Menu/>
 
 <Stack spacing={2}>
       <Pagination count={30} onChange={onChange}/>
@@ -77,7 +62,6 @@ export default function Home() {
                 
                 <P.Botoes>
                 <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
-                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
                 </P.Botoes>
               </P.CardA>
 
@@ -93,6 +77,8 @@ export default function Home() {
                   <p>Defesa-especial : {poke.stats[4].base_stat} </p>
                   <p>Velocidade : {poke.stats[5].base_stat} </p>
                   <p>Tipo: {poke.types[0].type.name}  </p>
+                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
+
                   </P.Paragrafos> 
                 </P.CardB>
                 </P.CardTodo>

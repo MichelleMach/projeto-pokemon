@@ -5,13 +5,40 @@ import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
 import Stack from '@mui/material/Stack'
+import { Chart } from "react-google-charts";
+import Sweetalertdemo from '../../Components/SweetAlert'
 import { GlobalContext } from '../../Context/GlobalStateContext'
+
 
 export default function Home() {
   const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
+
+  const [pgn, setpgn] = useState(1)
+  // const [options, setOptions] = {    title: 'Habilidades'}
+  // const [data, setData] = [
+  //   [`'Ataque', ${listaPokemon.stats[1].base_stat}`],
+  //   [`'Defesa', ${pokemon.stats[2].base_stat}`],
+  //  console.log(data)
+  // ]
+
+
+  const conta = 22 * (pgn - 1)
+
+
+  useEffect(() => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=21&offset=${conta}`)
+      .then((res) => {
+        setListaPokemon(res.data.results)
+        console.log(res.data.results)
+      }).catch((err) => {
+        console.log(err.response)
+      })
+  }, [pgn])
+
  
+
 
 
   useEffect(() => {
@@ -22,6 +49,7 @@ export default function Home() {
           pokemonLista.push(res.data)
           if (pokemonLista.length === 21) {
             setPokemon(pokemonLista)
+            console.log(res.data)
           }
         }).catch((err) => {
           console.log(err.response)
@@ -35,21 +63,25 @@ export default function Home() {
     setters.setPokedex([...states.pokedex, poke])
   }
 
+
+
   // console.log(pokemon)
 
   const onChange = (e,value) => {
     setters.setpgn(value)
+
   }
+
 
   return (
     <div>
-          
+      <Sweetalertdemo />
+
+
 
 <Menu/>
 
-<Stack spacing={2}>
-      <Pagination count={30} onChange={onChange}/>
-          </Stack>
+
 
       <P.ContainerCard>
         {
@@ -65,8 +97,25 @@ export default function Home() {
                 </P.Botoes>
               </P.CardA>
 
+
                 <P.CardB>
-                
+                  <P.CTp>
+                    <P.Tipo>{poke.types[0].type.name.toUpperCase()}</P.Tipo>
+
+                    {/* {
+                    listaPokemon.map((type) => {
+                      console.log(type)
+                      return (
+                        <p>{poke.types[1].type.name}</p>
+                      )
+                    }) 
+          
+                    }  */}
+
+
+
+
+                  </P.CTp>
                   <P.Paragrafos>
                   <p>Habilidades</p>
                   <br/>  
@@ -81,14 +130,16 @@ export default function Home() {
 
                   </P.Paragrafos> 
                 </P.CardB>
-                </P.CardTodo>
+              </P.CardTodo>
             )
           })
+
         }
-         </P.ContainerCard>
+      </P.ContainerCard>
 
-    
-
+      <P.Stack>
+        <Pagination count={29} onChange={onChange} />
+      </P.Stack>
 
     </div>
   )

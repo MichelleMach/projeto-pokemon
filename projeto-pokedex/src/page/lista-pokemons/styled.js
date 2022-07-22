@@ -1,17 +1,9 @@
 import styled from 'styled-components'
 
-// export const Container = styled.section `
-//     display:flex;
-//     /* justify-content:space-evenly; */
-//     flex-wrap:wrap;
-//     border: 2px solid;
-// `;
-
 export const ContainerCard = styled.div `
     /* width:230px;
     height:350px; */
     display:flex;
-    /* flex-direction:column; */
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin:40px 20px;
@@ -41,16 +33,7 @@ export const ImagemPoke = styled.img `
     align-items:center;
     width:230px;
     height:250px;
-    /* &:hover {
-    transform: scale(1.2);
-    transition: all 0.5s;
-    }
-    &:hover:after {
-    transform: scale(1);
-    transition: 1s;
-    } */
-
-`;
+    `;
 
 export const BotaoAdicionar = styled.button `
     background-color: #EE4035;
@@ -58,6 +41,20 @@ export const BotaoAdicionar = styled.button `
     padding:8px;
     width: 220px;
     color:white;
+    border:none;
+    font-weight: bold;
+    &:hover {
+        cursor:pointer
+    }
+`;
+
+export const BotaoAdicionarVerso = styled.button `
+    margin: 5px;
+    background-color: #EE4035;
+    border-radius: 30px;
+    padding:8px;
+    width: 220px;
+    color: white;
     border:none;
     font-weight: bold;
     &:hover {
@@ -86,7 +83,36 @@ export const Botoes = styled.div `
     background-color: white;
     height: 100px;
     width: 225px;
- 
+`
+export const Tipo = styled.p`
+display: flex;
+justify-content: center;
+align-self: flex-end;
+font-size: x-small;
+margin-top: 5px;
+margin-right: 5px;
+ background-color: #4F3C77;
+    border-radius: 30px;
+   padding: 10px;
+    width: 40px;
+    font-weight: bold;
+`
+export const TipoDois = styled.p`
+display: flex;
+justify-content: center;
+align-self: flex-end;
+font-size: x-small;
+margin-top: 5px;
+margin-right: 5px;
+ background-color: #89B256;
+    border-radius: 30px;
+   padding: 10px;
+    width: 40px;
+    font-weight: bold;
+`
+export const CTp = styled.div`
+display: flex;
+justify-content: right;
 `
 
 export const Name = styled.p`
@@ -102,6 +128,8 @@ text-align: center;
 export const Paragrafos = styled.div`
 text-align: justify;
 padding: 15px;
+font-size: 12px;
+color: #323232;
 `
 
 export const CardA = styled.div`
@@ -119,7 +147,7 @@ backface-visibility: hidden;
 
 `
 export const CardB = styled.div`
- background-color: #EE4035;
+ background-color: #D9D9D9;
 color: white;
 display: flex;
 flex-direction: column;
@@ -129,3 +157,10 @@ position: absolute;
 height: 350px;
 backface-visibility: hidden;
 `
+export const Stack = styled.div`
+display: flex;
+justify-content: center;
+margin-bottom: 50px;
+`
+
+

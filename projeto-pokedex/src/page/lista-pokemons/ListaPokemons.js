@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Menu from '../../Components/menu/Menu'
+import Menu from '../../components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
 import Stack from '@mui/material/Stack'
-// import { Chart } from "react-google-charts";
+import { Chart } from "react-google-charts";
 import Sweetalertdemo from '../../Components/SweetAlert'
-
-
+import { GlobalContext } from '../../Context/GlobalStateContext'
 
 
 export default function Home() {
-  const [listaPokemon, setListaPokemon] = useState([])
+  const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
-  const [pokemonAdicionado, setPokemonAdicionado] = useState([])
   const navigate = useNavigate()
+
   const [pgn, setpgn] = useState(1)
   // const [options, setOptions] = {    title: 'Habilidades'}
   // const [data, setData] = [
@@ -38,10 +37,13 @@ export default function Home() {
       })
   }, [pgn])
 
+ 
+
+
 
   useEffect(() => {
     const pokemonLista = []
-    listaPokemon.forEach((poke) => {
+    states.listaPokemon.forEach((poke) => {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
         .then((res) => {
           pokemonLista.push(res.data)
@@ -54,19 +56,20 @@ export default function Home() {
         })
     })
 
-  }, [listaPokemon])
+  }, [states.listaPokemon])
 
   const adicionarPokemon = (poke) => {
     console.log(poke)
-    setPokemonAdicionado([...pokemonAdicionado, poke])
+    setters.setPokedex([...states.pokedex, poke])
   }
 
 
 
   // console.log(pokemon)
 
-  const onChange = (e, value) => {
-    setpgn(value)
+  const onChange = (e,value) => {
+    setters.setpgn(value)
+
   }
 
 
@@ -75,23 +78,25 @@ export default function Home() {
       <Sweetalertdemo />
 
 
-      <Menu pokemonAdicionado={pokemonAdicionado} />
+
+<Menu/>
+
 
 
       <P.ContainerCard>
         {
           pokemon.map((poke) => {
             return (
-              <P.CardTodo>
+              <P.CardTodo key={poke.id}>
+                
+              <P.CardA>
+                <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
+                
+                <P.Botoes>
+                <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
+                </P.Botoes>
+              </P.CardA>
 
-                <P.CardA>
-                  <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
-
-                  <P.Botoes>
-                    <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
-                    <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Capturar Pokemon</P.BotaoAdicionar>
-                  </P.Botoes>
-                </P.CardA>
 
                 <P.CardB>
                   <P.CTp>
@@ -112,28 +117,18 @@ export default function Home() {
 
                   </P.CTp>
                   <P.Paragrafos>
-                    {/* <Chart
-            width={'500px'}
-            height={'300px'}
-            chartType="BarChart"
-            data={[Ataque, Defesa, Resistencia]}
-            options={[{poke.stats[1].base_stat}, {poke.stats[2].base_stat}, {poke.stats[5].base_stat}]}
-          /> */}
+                  <p>Habilidades</p>
+                  <br/>  
+                  <p>Resistência : {poke.stats[0].base_stat} </p>
+                  <p>Ataque : {poke.stats[1].base_stat} </p>
+                  <p>Defesa : {poke.stats[2].base_stat} </p>
+                  <p>Ataque-especial : {poke.stats[3].base_stat} </p>
+                  <p>Defesa-especial : {poke.stats[4].base_stat} </p>
+                  <p>Velocidade : {poke.stats[5].base_stat} </p>
+                  <p>Tipo: {poke.types[0].type.name}  </p>
+                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
 
-
-                    <p>Ataque : {poke.stats[1].base_stat} </p>
-                    <p>Defesa : {poke.stats[2].base_stat} </p>
-                    <p>Velocidade : {poke.stats[5].base_stat} </p>
-                    <p>Resistência : {poke.stats[0].base_stat} </p>
-                    <p>Ataque-especial : {poke.stats[3].base_stat} </p>
-                    <p>Defesa-especial : {poke.stats[4].base_stat} </p>
-
-
-                  </P.Paragrafos>
-
-
-                  <P.BotaoAdicionarVerso onClick={() => adicionarPokemon(poke)}>Capturar Pokemon</P.BotaoAdicionarVerso>
-
+                  </P.Paragrafos> 
                 </P.CardB>
               </P.CardTodo>
             )

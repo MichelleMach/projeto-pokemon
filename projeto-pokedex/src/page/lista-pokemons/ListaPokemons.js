@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Menu from '../../Components/menu/Menu'
+import Menu from '../../components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
@@ -38,7 +38,7 @@ export default function Home() {
   // console.log(pokemon)
 
   const onChange = (e,value) => {
-    setpgn(value)
+    setters.setpgn(value)
   }
 
   return (
@@ -55,7 +55,7 @@ export default function Home() {
         {
           pokemon.map((poke) => {
             return (
-              <P.CardTodo>
+              <P.CardTodo key={poke.id}>
                 
               <P.CardA>
                 <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />

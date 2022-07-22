@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function GlobalState(props) {
     const [listaPokemon, setListaPokemon] = useState([])
     const [pgn, setpgn] = useState(1)
-    const [pokedex, setPokedex] = useState({})
+    const [pokedex, setPokedex] = useState([])
 
     const conta = 22*(pgn-1)
  

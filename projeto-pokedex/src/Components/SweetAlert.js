@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import Swal from "sweetalert2";
 
+
 export default class Alert extends Component {
+
 
   constructor() {
     super();
     this.HandleClick = this.HandleClick.bind(this);
   }
+
 
   HandleClick() {
     Swal.fire({
@@ -14,6 +17,19 @@ export default class Alert extends Component {
       type: 'success',
       text: 'Your work has been saved.',
     });
+
+  
+  HandleClick() {
+    Swal.fire({
+      title: 'Você capturou um Pokémon!',
+      text: 'Pokémon salvo na Pokedex.',
+      imageUrl: 'https://i.gifer.com/Kcrm.gif',
+      imageWidth: 400,
+      imageHeight: 225,
+      imageAlt: 'Custom image',
+    })
+  
+
   }
   HandleClick1() {
     Swal.fire({

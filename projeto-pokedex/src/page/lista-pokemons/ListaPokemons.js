@@ -7,9 +7,12 @@ import { Pagination } from '@mui/material'
 import Swal from "sweetalert2";
 import Alert from '../../Components/SweetAlert'
 import { GlobalContext } from '../../Context/GlobalStateContext'
+import ProgressBar from '../../Components/ProgressBar/ProgressBar'
+import useRequestData from '../../hooks/useRequestData'
+import girar from './imagens/girar.png'
 
 
-export default function Home() {
+export default function Home(props) {
   const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
@@ -52,55 +55,74 @@ export default function Home() {
 
   return (
     <div>
+
       {/* <Sweetalertdemo /> */}
+
 
       <Menu />
 
       <P.ContainerCard>
-        {
+        {graficoPokemon &&
           pokemon.map((poke) => {
             return (
               <P.CardTodo key={poke.id}>
-
                 <P.CardA>
+
+                  
+
                   <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
 
                   <P.Botoes>
                     <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
+                    <P.Girar src={girar} />
                   </P.Botoes>
+                  
                 </P.CardA>
 
 
                 <P.CardB>
-                  <P.CTp>
-                    <P.Tipo>{poke.types[0].type.name.toUpperCase()}</P.Tipo>
 
-                    {/* {
-                    listaPokemon.map((type) => {
-                      console.log(type)
-                      return (
-                        <p>{poke.types[1].type.name}</p>
-                      )
-                    }) 
-          
-                    }  */}
-
-
-
-
-                  </P.CTp>
                   <P.Paragrafos>
-                    <p>Habilidades</p>
+
+
+                    <P.CTp>
+                    <P.TipoP>{poke.types[0].type.name.toUpperCase()}</P.TipoP>
+                    <P.Tipo># {poke.id}</P.Tipo>
+                  </P.CTp>
+                    {/* <ProgressBar /> */}
+
+                    <P.Table>
+                      <P.Tr>
+                        <P.Th>Poke-Habilidades</P.Th>
+                      </P.Tr>
+                      <P.Tr>
+                        <P.Td>Ataque</P.Td>  <P.Td2>{poke.stats[1].base_stat} </P.Td2>
+                      </P.Tr>
+                      <P.Tr>
+                        <P.Td> Defesa</P.Td> <P.Td2> {poke.stats[2].base_stat} </P.Td2>
+                      </P.Tr>
+                      <P.Tr>
+                        <P.Td>Velocidade</P.Td> <P.Td2>{poke.stats[5].base_stat}</P.Td2>
+                      </P.Tr>
+                      <P.Tr>
+                        <P.Td>Resistência </P.Td>  <P.Td2> {poke.stats[0].base_stat}</P.Td2>
+                      </P.Tr>
+
+                      <P.Tr>
+                        <P.Td>Ataque-especial</P.Td>  <P.Td2>{poke.stats[3].base_stat} </P.Td2>
+                      </P.Tr>
+                      <P.Tr>
+                        <P.Td>Defesa-especial</P.Td> <P.Td2>{poke.stats[4].base_stat} </P.Td2>
+                      </P.Tr>
+
+                    </P.Table>
+
+
                     <br />
-                    <p>Resistência : {poke.stats[0].base_stat} </p>
-                    <p>Ataque : {poke.stats[1].base_stat} </p>
-                    <p>Defesa : {poke.stats[2].base_stat} </p>
-                    <p>Ataque-especial : {poke.stats[3].base_stat} </p>
-                    <p>Defesa-especial : {poke.stats[4].base_stat} </p>
-                    <p>Velocidade : {poke.stats[5].base_stat} </p>
-                    <p>Tipo: {poke.types[0].type.name}  </p>
-                    <P.BotaoAdicionar onClick={() => (alertPokedex(), adicionarPokemon(poke))}>Adicionar a Pokedex</P.BotaoAdicionar>
+                    <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Capturar Pokemon</P.BotaoAdicionar>
+
                   </P.Paragrafos>
+
                 </P.CardB>
               </P.CardTodo>
             )

@@ -3,6 +3,7 @@ import PokeBattleCard from './PokeBattleCard';
 import Menu from '../../Components/menu/Menu';
 import * as C from './styled'
 import { useEffect, useState } from 'react'
+import Menu from '../../Components/menu/Menu'
 
 const PokeBattle = () => {
   const [pokeNameRight, setPokeNameRight] = useState("")
@@ -38,6 +39,7 @@ const PokeBattle = () => {
             setTotal={setTotalLeft}
           />
 
+
           <C.ContainerWinner id='middle-container'>
             <Typography variant='h4' color='white'><strong>VS</strong></Typography>
             {(totalLeft && totalRight) && (totalLeft !== totalRight) ?
@@ -55,6 +57,7 @@ const PokeBattle = () => {
       </C.Background>
     </>
   )
+
 }
 
 export default PokeBattle

@@ -45,11 +45,16 @@ export default function Home(props) {
   }
 
   const alertPokedex = () => {
-    Swal.fire({
-      title: 'Success',
-      type: 'success',
-      text: 'Your work has been saved.',
-    });
+    
+      Swal.fire({
+        title: 'Você capturou um Pokémon!',
+        text: 'Pokémon salvo na Pokedex.',
+        imageUrl: 'https://i.gifer.com/Kcrm.gif',
+        imageWidth: 400,
+        imageHeight: 225,
+        imageAlt: 'Custom image',
+      })
+    
   }
 
 
@@ -62,7 +67,7 @@ export default function Home(props) {
       <Menu />
 
       <P.ContainerCard>
-        {graficoPokemon &&
+        {
           pokemon.map((poke) => {
             return (
               <P.CardTodo key={poke.id}>
@@ -119,7 +124,7 @@ export default function Home(props) {
 
 
                     <br />
-                    <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Capturar Pokemon</P.BotaoAdicionar>
+                    <P.BotaoAdicionar onClick={() =>(alertPokedex(), adicionarPokemon(poke))}>Capturar Pokemon</P.BotaoAdicionar>
 
                   </P.Paragrafos>
 

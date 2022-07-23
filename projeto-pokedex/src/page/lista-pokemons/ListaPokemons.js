@@ -15,8 +15,6 @@ export default function Home() {
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
 
-  const [pgn, setpgn] = useState(1)
-
   useEffect(() => {
     const pokemonLista = []
     states.listaPokemon.forEach((poke) => {
@@ -98,7 +96,7 @@ export default function Home() {
                   <p>Defesa-especial : {poke.stats[4].base_stat} </p>
                   <p>Velocidade : {poke.stats[5].base_stat} </p>
                   <p>Tipo: {poke.types[0].type.name}  </p>
-                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
+                  <P.BotaoAdicionar onClick={() => (adicionarPokemon(poke))} >Adicionar a Pokedex</P.BotaoAdicionar>
 
                   </P.Paragrafos> 
                 </P.CardB>

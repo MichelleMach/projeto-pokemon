@@ -47,3 +47,4 @@ export const Background = styled.div `
     height: 70px;
 
 `
+

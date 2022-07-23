@@ -69,7 +69,7 @@ export default function Home(props) {
 
                   
 
-                  <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
+                  <P.ImagemPoke src={poke.sprites.other.home.front_default} />
 
                   <P.Botoes>
                     <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>

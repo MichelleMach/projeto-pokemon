@@ -12,7 +12,7 @@ export default function GlobalState(props) {
   
   
 useEffect(() => {
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=21&offset=${conta}`)
+      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=22&offset=${conta}`)
         .then((res) => {
           setListaPokemon(res.data.results)
           console.log(res.data.results)

@@ -12,7 +12,7 @@ export const ContainerCard = styled.div`
 `;
 
 export const CardTodo = styled.div`
-border: 3px solid #D9D9D9; 
+/* border: 3px solid #D9D9D9;  */
 width: 230px;
 display:flex;
 flex-direction:column;
@@ -55,7 +55,7 @@ export const Botoes = styled.div`
     margin-top: 5px;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: white;
+    background-color: #FBF03E;
     height: 90px;
     width: 225px;
 `
@@ -80,13 +80,12 @@ justify-content: right;
 `
 
 export const Name = styled.p`
-text-align: center;
- background-color: #FBF03E;
+    text-align: center;
     border-radius: 30px;
-    padding:8px;
     width: 200px;
     color:#5A6990;
     border:none;
+    font-size:24px;
     font-weight: bold;
 `
 export const Paragrafos = styled.div`

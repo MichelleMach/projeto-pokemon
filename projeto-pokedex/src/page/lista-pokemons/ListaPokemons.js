@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Pagination } from '@mui/material'
 import Swal from "sweetalert2";
 import { GlobalContext } from '../../Context/GlobalStateContext'
-import girar from './imagens/girar.png'
+import girar from '../../assets/girar.png'
 
 
 export default function Home(props) {
@@ -66,8 +66,6 @@ export default function Home(props) {
             return (
               <P.CardTodo key={poke.id}>
                 <P.CardA>
-
-                  
 
                   <P.ImagemPoke src={poke.sprites.other.home.front_default} />
 

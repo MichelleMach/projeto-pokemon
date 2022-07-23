@@ -32,7 +32,6 @@ export const Nav = styled.li `
     margin:20px;
     font-weight: bold;
 
-    /* color: ${props => props.pokedex ? 'blue' : 'red'}; */
     &:hover {
         cursor:pointer;
     }

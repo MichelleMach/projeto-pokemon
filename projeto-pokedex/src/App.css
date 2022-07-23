@@ -3,3 +3,22 @@
     padding:0;
     font-family: 'Poppins', sans-serif;
 }
+
+
+  *::-webkit-scrollbar {
+    position:absolute;
+    width: 12px;
+
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: #f2b9b5;
+
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    position:absolute;
+    background-color:#EE4035;
+    border-radius: 20px;
+
+  }

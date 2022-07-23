@@ -3,7 +3,7 @@ import PokeBattleCard from './PokeBattleCard';
 import Menu from '../../Components/menu/Menu';
 import * as C from './styled'
 import { useEffect, useState } from 'react'
-import Menu from '../../Components/menu/Menu'
+
 
 const PokeBattle = () => {
   const [pokeNameRight, setPokeNameRight] = useState("")
@@ -30,7 +30,7 @@ const PokeBattle = () => {
 
   return (
     <>
-      {/* <Menu /> */}
+      <Menu />
       <C.Background>
         <C.BatalhaPokemons>
           <PokeBattleCard

@@ -18,6 +18,8 @@ export default class Alert extends Component {
       text: 'Your work has been saved.',
     });
 
+  }
+
   
   HandleClick() {
     Swal.fire({
@@ -28,9 +30,8 @@ export default class Alert extends Component {
       imageHeight: 225,
       imageAlt: 'Custom image',
     })
-  
+  };
 
-  }
   HandleClick1() {
     Swal.fire({
       title: 'Are you sure?',

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Menu from '../../components/menu/Menu'
+import Menu from '../../Components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
@@ -22,22 +22,6 @@ export default function Home() {
   //   [`'Defesa', ${pokemon.stats[2].base_stat}`],
   //  console.log(data)
   // ]
-
-
-  const conta = 22 * (pgn - 1)
-
-
-  useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=21&offset=${conta}`)
-      .then((res) => {
-        setListaPokemon(res.data.results)
-        console.log(res.data.results)
-      }).catch((err) => {
-        console.log(err.response)
-      })
-  }, [pgn])
-
- 
 
 
 
@@ -126,7 +110,7 @@ export default function Home() {
                   <p>Defesa-especial : {poke.stats[4].base_stat} </p>
                   <p>Velocidade : {poke.stats[5].base_stat} </p>
                   <p>Tipo: {poke.types[0].type.name}  </p>
-                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
+                  <P.BotaoAdicionar onClick={() => (adicionarPokemon(poke))} >Adicionar a Pokedex</P.BotaoAdicionar>
 
                   </P.Paragrafos> 
                 </P.CardB>

@@ -11,29 +11,6 @@ export default function Pokedex() {
   const { states } = useContext(GlobalContext)
   const [pokemonsAdd, setPokemonsAdd] = useState (states.pokedex)
 
-  // const removerPokemon = (novoPokemon) => {
-  //   setPokedex(state.pokedex.filter(pokemon => novoPokemon.name !== pokemon.name))
-  // }
-
-  // const exibirPokemons = states.pokedex & states.pokedex.map((pokemon) => {
-  //   console.log(states.pokedex)
-  //   return (
-  //     <div key={pokemon.name}>
-  //       {console.log(pokemon.name)}
-  //       <div>
-  //         <p>#{pokemon.order}</p>
-  //         <div>
-  //           <p>{pokemon.types[0].type.name}</p>
-  //         </div>
-  //         <div>
-  //           <img alt={pokemon} src={pokemon.sprites.front_default} />
-  //         </div>
-
-
-  //       </div>
-  //     </div>
-  //   )
-  // })
 
 
   return (
@@ -43,19 +20,22 @@ export default function Pokedex() {
       {pokemonsAdd.map((pokemon) => {
         
         return (
+          <C.Container>
           <C.ContainerCard>
+                <C.PokeImg alt={pokemon} src={pokemon.sprites.front_default} />
+                {console.log(pokemon)}
             {pokemon.name}
             <div>
+            <button>Excluir</button>
               <p>#{pokemon.order}</p>
               <div>
                 <p>{pokemon.types[0].type.name}</p>
               </div>
               <div>
-                <img alt={pokemon} src={pokemon.sprites.front_default} />
-                {console.log(pokemon)}
               </div>
             </div>
           </C.ContainerCard>
+        </C.Container>
         )
       })
       }

@@ -18,7 +18,6 @@ export default function Home(props) {
   const navigate = useNavigate()
   const graficoPokemon = useRequestData({}, `https://pokeapi.co/api/v2/pokemon/${props.pokeName}`)[0]
 
-
   useEffect(() => {
     const pokemonLista = []
     states.listaPokemon.forEach((poke) => {
@@ -113,6 +112,7 @@ export default function Home(props) {
                     <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Capturar Pokemon</P.BotaoAdicionar>
 
                   </P.Paragrafos>
+
                 </P.CardB>
               </P.CardTodo>
             )

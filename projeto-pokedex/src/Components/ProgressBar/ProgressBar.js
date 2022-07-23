@@ -31,7 +31,7 @@ const ProgressBar = (props) => {
 
   return (
     <ContainerProgressBar>
-      <Typography sx={{ mb: '0.5rem' }}>
+      <Typography >
         {props.statText && props.statText.charAt(0).toUpperCase() + props.statText.slice(1)}: {props.label}
       </Typography>
       <div>

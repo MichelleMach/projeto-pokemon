@@ -4,9 +4,8 @@ import Menu from '../../Components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
-import Stack from '@mui/material/Stack'
-import { Chart } from "react-google-charts";
-import Sweetalertdemo from '../../Components/SweetAlert'
+import Swal from "sweetalert2";
+import Alert from '../../Components/SweetAlert'
 import { GlobalContext } from '../../Context/GlobalStateContext'
 
 
@@ -14,8 +13,6 @@ export default function Home() {
   const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
-
-  const [pgn, setpgn] = useState(1)
 
   useEffect(() => {
     const pokemonLista = []
@@ -39,35 +36,39 @@ export default function Home() {
     setters.setPokedex([...states.pokedex, poke])
   }
 
-  const onChange = (e,value) => {
+  const onChange = (e, value) => {
     setters.setpgn(value)
 
+  }
+
+  const alertPokedex = () => {
+    Swal.fire({
+      title: 'Success',
+      type: 'success',
+      text: 'Your work has been saved.',
+    });
   }
 
 
   return (
     <div>
-      <Sweetalertdemo />
+      {/* <Sweetalertdemo /> */}
 
-
-
-<Menu/>
-
-
+      <Menu />
 
       <P.ContainerCard>
         {
           pokemon.map((poke) => {
             return (
               <P.CardTodo key={poke.id}>
-                
-              <P.CardA>
-                <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
-                
-                <P.Botoes>
-                <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
-                </P.Botoes>
-              </P.CardA>
+
+                <P.CardA>
+                  <P.ImagemPoke src={poke.sprites.other.dream_world.front_default} />
+
+                  <P.Botoes>
+                    <P.Name><strong>{poke.name.toUpperCase()}</strong></P.Name>
+                  </P.Botoes>
+                </P.CardA>
 
 
                 <P.CardB>
@@ -89,18 +90,17 @@ export default function Home() {
 
                   </P.CTp>
                   <P.Paragrafos>
-                  <p>Habilidades</p>
-                  <br/>  
-                  <p>Resistência : {poke.stats[0].base_stat} </p>
-                  <p>Ataque : {poke.stats[1].base_stat} </p>
-                  <p>Defesa : {poke.stats[2].base_stat} </p>
-                  <p>Ataque-especial : {poke.stats[3].base_stat} </p>
-                  <p>Defesa-especial : {poke.stats[4].base_stat} </p>
-                  <p>Velocidade : {poke.stats[5].base_stat} </p>
-                  <p>Tipo: {poke.types[0].type.name}  </p>
-                  <P.BotaoAdicionar onClick={() => adicionarPokemon(poke)}>Adicionar a Pokedex</P.BotaoAdicionar>
-
-                  </P.Paragrafos> 
+                    <p>Habilidades</p>
+                    <br />
+                    <p>Resistência : {poke.stats[0].base_stat} </p>
+                    <p>Ataque : {poke.stats[1].base_stat} </p>
+                    <p>Defesa : {poke.stats[2].base_stat} </p>
+                    <p>Ataque-especial : {poke.stats[3].base_stat} </p>
+                    <p>Defesa-especial : {poke.stats[4].base_stat} </p>
+                    <p>Velocidade : {poke.stats[5].base_stat} </p>
+                    <p>Tipo: {poke.types[0].type.name}  </p>
+                    <P.BotaoAdicionar onClick={() => (alertPokedex(), adicionarPokemon(poke))}>Adicionar a Pokedex</P.BotaoAdicionar>
+                  </P.Paragrafos>
                 </P.CardB>
               </P.CardTodo>
             )

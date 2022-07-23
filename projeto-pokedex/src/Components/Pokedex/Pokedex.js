@@ -4,6 +4,7 @@ import { GlobalContext } from '../../Context/GlobalStateContext'
 import Menu from '../menu/Menu'
 import * as C from './styled'
 import Swal from "sweetalert2";
+import Ash from './imagens/ash.gif'
 
 
 
@@ -26,7 +27,7 @@ export default function Pokedex() {
         if (result.isConfirmed) {
           setPokemonsAdd(pokemonsAdd.splice(pokemon, 1))
         } else if (result.isDenied) {
-          Swal.fire('Seu Pokemon ainda está na Pokedex')
+          Swal.fire('Seu Pokemon ainda está na Pokebola')
 
         }
       })};
@@ -35,6 +36,11 @@ export default function Pokedex() {
     return (
       <div>
         <Menu />
+        <C.Inicio>
+        <C.Frase> Não há Pokemons por aqui! </C.Frase>
+<C.Choro src={Ash} />
+        </C.Inicio>
+
         <C.Container>
           {pokemonsAdd.map((pokemon) => {
 

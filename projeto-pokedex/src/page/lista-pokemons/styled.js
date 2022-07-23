@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerCard = styled.div `
+export const ContainerCard = styled.div`
     /* width:230px;
     height:350px; */
     display:flex;
@@ -28,60 +28,35 @@ transform: rotateY(180deg)
 }
 `
 
-export const ImagemPoke = styled.img `
+export const ImagemPoke = styled.img`
     display:flex;
     align-items:center;
     width:230px;
     height:250px;
     `;
 
-export const BotaoAdicionar = styled.button `
+export const BotaoAdicionar = styled.button`
+    margin-top: 10px;
     background-color: #EE4035;
     border-radius: 30px;
     padding:8px;
-    width: 220px;
+    width: 200px;
     color:white;
     border:none;
     font-weight: bold;
     &:hover {
         cursor:pointer
     }
-`;
+`
 
-export const BotaoAdicionarVerso = styled.button `
-    margin: 5px;
-    background-color: #EE4035;
-    border-radius: 30px;
-    padding:8px;
-    width: 220px;
-    color: white;
-    border:none;
-    font-weight: bold;
-    &:hover {
-        cursor:pointer
-    }
-`;
-
-export const BotaoDetalhe = styled.button `
-    background-color: #FBF03E;
-    border-radius: 30px;
-    padding:8px;
-    width: 200px;
-    color:#5A6990;
-    border:none;
-    font-weight: bold;
-    &:hover {
-        cursor:pointer
-    }
-`;
-
-export const Botoes = styled.div `
+export const Botoes = styled.div`
     display:flex;
     align-items:center;
+    margin-top: 5px;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: white;
-    height: 100px;
+    height: 90px;
     width: 225px;
 `
 export const Tipo = styled.p`
@@ -89,27 +64,16 @@ display: flex;
 justify-content: center;
 align-self: flex-end;
 font-size: x-small;
-margin-top: 5px;
+color: white;
+margin-top: 2px;
 margin-right: 5px;
  background-color: #4F3C77;
     border-radius: 30px;
    padding: 10px;
-    width: 40px;
+    width: 50px;
     font-weight: bold;
 `
-export const TipoDois = styled.p`
-display: flex;
-justify-content: center;
-align-self: flex-end;
-font-size: x-small;
-margin-top: 5px;
-margin-right: 5px;
- background-color: #89B256;
-    border-radius: 30px;
-   padding: 10px;
-    width: 40px;
-    font-weight: bold;
-`
+
 export const CTp = styled.div`
 display: flex;
 justify-content: right;
@@ -138,7 +102,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 text-align: justify;
-/* padding: 20px; */
 color: #456075;
 position: absolute;
 width: 230px;
@@ -162,5 +125,46 @@ display: flex;
 justify-content: center;
 margin-bottom: 50px;
 `
+export const Table = styled.table`
+display: flex;
+flex-direction: column;
+border-collapse: collapse;
+  width: 100%;
+  
+`
+export const Tr = styled.tr`
+display: flex;
+justify-content: space-between;
 
-
+:hover {background-color: yellowgreen ;
+    -webkit-transform: scale(1.1);
+  transform: scale(1.1);}
+`
+export const Td = styled.td`
+margin: 5px;
+`
+export const Td2 = styled.td`
+margin-right: 5px;
+`
+export const Th = styled.th`
+margin-left: 15%;
+height: 35px;
+font-size: 15px;
+`
+export const Girar = styled.img`
+width: 40px;
+`
+export const TipoP = styled.p`
+display: flex;
+justify-content: center;
+align-self: flex-end;
+font-size: x-small;
+color:#5A6990;
+margin-top: 2px;
+margin-right: 5px;
+ background-color: #FBF03E;
+    border-radius: 30px;
+   padding: 10px;
+    width: 70px;
+    font-weight: bold;
+`

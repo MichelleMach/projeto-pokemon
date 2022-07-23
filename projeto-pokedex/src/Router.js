@@ -9,8 +9,9 @@ export default function Router() {
     return (
         <BrowserRouter>
         <Routes>
-          <Route index element = {<ListarPokemon/>}/>
-          <Route path = "batalha" element = {<Batalha/>}/>
+          <Route index element = {<Batalha/>}/>
+          <Route path = "lista" element = {<ListarPokemon/>}/>
+          
           <Route path = "pokedex" element = {<Pokedex/>}/>
           </Routes>
         </BrowserRouter> 

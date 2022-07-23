@@ -24,7 +24,11 @@ export const ImagemPokebola = styled.img `
     width:100px;
     height: 100px;
     position: relative;
-
+    :hover,
+button:focus {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 `
 
 export const Nav = styled.li `
@@ -43,4 +47,15 @@ export const Background = styled.div `
     width: 100%;
     height: 70px;
 
+`
+
+export const TextoBotao = styled.p `
+margin-top: 10px;
+    :hover,
+button:focus {
+  color: #5A6990;  
+  border-bottom: 3px solid #5A6990;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 `

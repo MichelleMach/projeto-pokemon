@@ -8,7 +8,7 @@ export const Menu = styled.div `
     margin-top:20px;
     padding:20px;
     background-color: #FBF03E;
-    weight:100%;
+    width:100%;
     height:20px;
 
 `
@@ -24,6 +24,11 @@ export const ImagemPokebola = styled.img `
     width:100px;
     height: 100px;
     position: relative;
+    :hover,
+button:focus {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 `
 
@@ -47,3 +52,13 @@ export const Background = styled.div `
 
 `
 
+export const TextoBotao = styled.p `
+margin-top: 10px;
+    :hover,
+button:focus {
+  color: #5A6990;  
+  border-bottom: 3px solid #5A6990;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+`

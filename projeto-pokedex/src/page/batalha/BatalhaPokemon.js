@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import PokeBattleCard from './PokeBattleCard';
 import { useEffect, useState } from 'react'
+import Menu from '../../Components/menu/Menu'
 
 const PokeBattle = () => {
     const [pokeNameRight, setPokeNameRight] = useState("")
@@ -27,6 +28,7 @@ const PokeBattle = () => {
 
     return (
         <div>
+            <Menu/>
             <Typography variant='h4' color='#5F5950' sx={{ margin: '25px 0' }} >Escolha os Pokémons</Typography>
             <div>
                 <PokeBattleCard

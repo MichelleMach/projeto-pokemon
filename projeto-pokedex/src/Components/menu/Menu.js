@@ -9,11 +9,15 @@ const Menu = (props) => {
     const [pokemonAdicionado, setPokemonAdicionado] = useState()
     const navigate = useNavigate()
     const listaPokemon = () => {
-        navigate("/")
+        navigate("/lista")
       }
 
       const pokedex = () => {
         navigate("/pokedex")
+      }
+
+      const batalha = () => {
+        navigate("/")
       }
 
 
@@ -27,7 +31,7 @@ const Menu = (props) => {
             </C.Nav>
 
             <C.Nav>
-                <C.ImagemPokebola src={LogoPokemon} />
+                <C.ImagemPokebola src={LogoPokemon} onClick={batalha}/>
             </C.Nav>
 
             

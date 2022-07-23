@@ -27,7 +27,7 @@ const Menu = (props) => {
         <C.Container>
             
             <C.Nav onClick={() => pokedex(props.pokemonAdicionado)}  pokedex={true}>
-                Pokedex
+                Pokedex 
             </C.Nav>
 
             <C.Nav>

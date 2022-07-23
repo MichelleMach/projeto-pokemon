@@ -26,6 +26,6 @@ justify-content:center;
     ion-icon{
         font-size: 60px;
     }
-
-
 `
+
+

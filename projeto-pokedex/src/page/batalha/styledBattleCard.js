@@ -20,4 +20,6 @@ export const ContainerInfos = styled.div `
 export const ImagemPokemon = styled.img`
     weight:auto;
     height:260px;
+    
+
 `

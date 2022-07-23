@@ -7,7 +7,7 @@ export const ContainerCard = styled.div`
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin:40px 20px;
-    /* border: 3px solid #D9D9D9; */
+   
     
 `;
 

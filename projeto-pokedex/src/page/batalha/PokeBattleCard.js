@@ -1,6 +1,7 @@
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import useRequestData from '../../hooks/useRequestData'
 import Menu from '../../Components/menu/Menu'
+import * as C from './styledBattleCard'
 import { useEffect } from 'react'
 
 const PokeBattleCard = (props) => {
@@ -46,8 +47,7 @@ const PokeBattleCard = (props) => {
     return (
         <div>
 
-            {/* <Menu /> */}
-            <select onChange={onChangeSelect}>
+            <C.Select size="1" onChange={onChangeSelect}>
                 <option value={""}>Escolha um Pokémon</option>
                 {data.results && data.results.map((pokemon) => {
                     return (
@@ -57,11 +57,14 @@ const PokeBattleCard = (props) => {
                     )
                 })
                 }
-            </select>
-            <img src={pokemon.sprites && pokemon.sprites.other["official-artwork"].front_default} />
-            <div>
-                {statList}
-            </div>
+            </C.Select>
+
+            <C.ContainerInfos>
+                <C.ImagemPokemon src={pokemon.sprites && pokemon.sprites.other["official-artwork"].front_default} />
+                <div>
+                    {statList}
+                </div>
+            </C.ContainerInfos>
         </div>
     )
 }

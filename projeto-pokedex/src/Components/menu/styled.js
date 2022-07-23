@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Menu = styled.div `
+    /* position:absolute; */
     display:flex;
     align-self:center;
     justify-content:center;
@@ -9,6 +10,7 @@ export const Menu = styled.div `
     background-color: #FBF03E;
     /* border-top:3px solid #474748;
     border-bottom:3px solid #474748; */
+    weight:100%;
     height:20px;
 
 `

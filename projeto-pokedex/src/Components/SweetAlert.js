@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import Swal from "sweetalert2";
 
-export default class Sweetalertdemo extends Component {
+
+export default class Alert extends Component {
+
 
   constructor() {
     super();
     this.HandleClick = this.HandleClick.bind(this);
   }
+
+
+  HandleClick() {
+    Swal.fire({
+      title: 'Success',
+      type: 'success',
+      text: 'Your work has been saved.',
+    });
+
   
-
-
-
   HandleClick() {
     Swal.fire({
       title: 'Você capturou um Pokémon!',
@@ -21,6 +29,7 @@ export default class Sweetalertdemo extends Component {
       imageAlt: 'Custom image',
     })
   
+
   }
   HandleClick1() {
     Swal.fire({
@@ -84,10 +93,7 @@ export default class Sweetalertdemo extends Component {
     return (
       <div>
         <div class="row" className="hdr">
-          <div class="col-sm-12 btn btn-info">
-            SweetAlert2 In React
 
-          </div>
         </div>
         <div >
           <button onClick={this.HandleClick}>Success</button>

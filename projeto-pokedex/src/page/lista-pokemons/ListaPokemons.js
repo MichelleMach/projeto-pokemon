@@ -4,8 +4,8 @@ import Menu from '../../Components/menu/Menu'
 import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
-import Stack from '@mui/material/Stack'
-import Sweetalertdemo from '../../Components/SweetAlert'
+import Swal from "sweetalert2";
+import Alert from '../../Components/SweetAlert'
 import { GlobalContext } from '../../Context/GlobalStateContext'
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import useRequestData from '../../hooks/useRequestData'
@@ -16,7 +16,6 @@ export default function Home(props) {
   const { states, setters } = useContext(GlobalContext)
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
-  const graficoPokemon = useRequestData({}, `https://pokeapi.co/api/v2/pokemon/${props.pokeName}`)[0]
 
   useEffect(() => {
     const pokemonLista = []
@@ -45,10 +44,21 @@ export default function Home(props) {
 
   }
 
+  const alertPokedex = () => {
+    Swal.fire({
+      title: 'Success',
+      type: 'success',
+      text: 'Your work has been saved.',
+    });
+  }
+
 
   return (
     <div>
-      <Sweetalertdemo />
+
+      {/* <Sweetalertdemo /> */}
+
+
       <Menu />
 
       <P.ContainerCard>
@@ -56,7 +66,6 @@ export default function Home(props) {
           pokemon.map((poke) => {
             return (
               <P.CardTodo key={poke.id}>
-
                 <P.CardA>
 
                   
@@ -74,6 +83,7 @@ export default function Home(props) {
                 <P.CardB>
 
                   <P.Paragrafos>
+
 
                     <P.CTp>
                     <P.TipoP>{poke.types[0].type.name.toUpperCase()}</P.TipoP>

@@ -45,7 +45,7 @@ export default function Home(props) {
     
       Swal.fire({
         title: 'Você capturou um Pokémon!',
-        text: 'Pokémon salvo na Pokedex.',
+        text: 'Pokémon salvo na Pokebola.',
         imageUrl: 'https://i.gifer.com/Kcrm.gif',
         imageWidth: 400,
         imageHeight: 225,

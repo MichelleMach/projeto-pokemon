@@ -104,6 +104,16 @@ export const Tr = styled.tr`
         cursor: context-menu;
 }
 `
+export const Frase = styled.p`
+font-size: x-large;
+`
 
-
-
+export const Inicio = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 40px;
+`
+export const Choro = styled.img`
+width: 400px;
+`

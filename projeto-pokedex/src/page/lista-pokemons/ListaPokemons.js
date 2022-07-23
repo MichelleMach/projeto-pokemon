@@ -15,16 +15,6 @@ export default function Home() {
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
 
-  const [pgn, setpgn] = useState(1)
-  // const [options, setOptions] = {    title: 'Habilidades'}
-  // const [data, setData] = [
-  //   [`'Ataque', ${listaPokemon.stats[1].base_stat}`],
-  //   [`'Defesa', ${pokemon.stats[2].base_stat}`],
-  //  console.log(data)
-  // ]
-
-
-
   useEffect(() => {
     const pokemonLista = []
     states.listaPokemon.forEach((poke) => {
@@ -46,10 +36,6 @@ export default function Home() {
     console.log(poke)
     setters.setPokedex([...states.pokedex, poke])
   }
-
-
-
-  // console.log(pokemon)
 
   const onChange = (e,value) => {
     setters.setpgn(value)

@@ -27,7 +27,8 @@ const Menu = (props) => {
         <C.Container>
             
             <C.Nav onClick={() => pokedex(props.pokemonAdicionado)}  pokedex={true}>
-                Pokedex 
+               <C.TextoBotao> Pokebola 
+               </C.TextoBotao>
             </C.Nav>
 
             <C.Nav>
@@ -36,7 +37,8 @@ const Menu = (props) => {
 
             
             <C.Nav onClick={listaPokemon}>
-                Lista Pokemon
+            <C.TextoBotao>Lista de Pokemons
+            </C.TextoBotao>
             </C.Nav>
         </C.Container>
     </C.Menu>

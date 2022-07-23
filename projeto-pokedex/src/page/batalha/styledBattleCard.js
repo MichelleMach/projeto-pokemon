@@ -13,7 +13,7 @@ export const Select = styled.select `
 export const ContainerInfos = styled.div `
     weight: 350px;
     display:flex;
-    border:1px solid;
+    /* border:1px solid; */
 
 `
 

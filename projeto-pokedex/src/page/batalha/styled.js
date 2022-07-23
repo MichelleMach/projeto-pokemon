@@ -14,9 +14,19 @@ export const Background = styled.div`
 
 export const BatalhaPokemons = styled.div `
     display:flex;
+    width: 90vw;
+    justify-content:space-between;
     align-items:center;
+    padding:30px;
+    /* border: 1px solid; */
 
 `
+export const VS = styled.img `
+    width: 120px;
+    height: 120px;
+
+`
+
 
 export const ContainerWinner = styled.div `
 display:flex;

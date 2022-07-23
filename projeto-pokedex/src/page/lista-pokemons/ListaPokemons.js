@@ -5,10 +5,7 @@ import * as P from './styled'
 import axios from 'axios'
 import { Pagination } from '@mui/material'
 import Swal from "sweetalert2";
-import Alert from '../../Components/SweetAlert'
 import { GlobalContext } from '../../Context/GlobalStateContext'
-import ProgressBar from '../../Components/ProgressBar/ProgressBar'
-import useRequestData from '../../hooks/useRequestData'
 import girar from './imagens/girar.png'
 
 
@@ -60,10 +57,7 @@ export default function Home(props) {
 
   return (
     <div>
-
-      {/* <Sweetalertdemo /> */}
-
-
+     
       <Menu />
 
       <P.ContainerCard>

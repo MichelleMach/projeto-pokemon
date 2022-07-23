@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const Menu = styled.div `
-
+    position:absolute;
+    top: 20px;
+    left:0;
+    right:0;
     display:flex;
-    align-self:center;
     justify-content:center;
-    margin-top:20px;
     padding:20px;
-    background-color: #FBF03E;
-    weight:100%;
+    background-color:white;
     height:20px;
 
 `
@@ -31,7 +31,6 @@ export const Nav = styled.li `
     color: #EE4035;
     margin:20px;
     font-weight: bold;
-
     /* color: ${props => props.pokedex ? 'blue' : 'red'}; */
     &:hover {
         cursor:pointer;
@@ -41,8 +40,6 @@ export const Nav = styled.li `
 
 export const Background = styled.div `
     background-color: #FBF03E;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     width: 100%;
     height: 70px;
 

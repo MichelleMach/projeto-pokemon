@@ -14,6 +14,7 @@ export default function Home(props) {
   const [pokemon, setPokemon] = useState([])
   const navigate = useNavigate()
 
+
   useEffect(() => {
     const pokemonLista = []
     states.listaPokemon.forEach((poke) => {
@@ -59,6 +60,10 @@ export default function Home(props) {
     <div>
      
       <Menu />
+
+
+
+      
 
       <P.ContainerCard>
         {

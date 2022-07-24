@@ -108,6 +108,7 @@ export const Frase = styled.p`
 font-size: x-large;
 color: blue;
 text-align:center;
+
 `
 
 export const Inicio = styled.div`
@@ -119,6 +120,7 @@ margin-top: 40px;
 export const Choro = styled.img`
 width: 400px;
 `
+
 export const ImgX = styled.img`
 width:25px;
 `
@@ -129,3 +131,4 @@ background:none;
 margin-right:10px;
 margin-bottom: 20px;
 `
+

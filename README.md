@@ -17,6 +17,7 @@
 
 
 
+
 💬
 ## Descrição 
 
@@ -43,7 +44,7 @@ Ao ingressar no site, o usuário pode ludicamente se entreter com uma batalha po
 
 Ao acessar a página Lista de Pokémons, é possível observar pokémons e, deslizando o cursor sobre eles, os cards se viram e mostram as informações básicas das suas habilidades, o tipo de pokémon e lhe é permitido capturá-lo. 
 
-Na página Pokebola, o usuário visualiza todos aqueles pokémon que foram capturados na tela anterior e pode retirar aqueles que não desejar mais
+Na página Pokebola, o usuário visualiza todos aqueles pokémons que foram capturados na tela anterior e pode retirar aqueles que não desejar mais
 
 
 
@@ -72,6 +73,11 @@ Em breve na página Lista de Pokemons pretendemos adicionar um campo de busca po
 
 | [<img src="https://avatars.githubusercontent.com/laisrm" width=115><br><sub>Laís Rodrigues Martins</sub>](https://github.com/laisrm) |  [<img src="https://avatars.githubusercontent.com/MichelleMach" width=115><br><sub>Michelle Machado</sub>](https://github.com/MichelleMach) |  [<img src="https://avatars.githubusercontent.com/Melissacopetti" width=115><br><sub>Melissa Copetti</sub>](https://github.com/Melissacopetti) |
 | :---: | :---: | :---: |
+
+
+
+
+* [Topo da página](#pokedex)
 
 ![poke_pika_wink](https://user-images.githubusercontent.com/104601856/180667165-ff322101-baf2-4abd-81be-354f5546d93f.png)
 

@@ -104,6 +104,28 @@ export const Tr = styled.tr`
         cursor: context-menu;
 }
 `
+export const Frase = styled.p`
+font-size: x-large;
+color: blue;
+text-align:center;
+`
 
+export const Inicio = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 40px;
+`
+export const Choro = styled.img`
+width: 400px;
+`
+export const ImgX = styled.img`
+width:25px;
+`
 
-
+export const ButtonX = styled.button`
+border:none;
+background:none;
+margin-right:10px;
+margin-bottom: 20px;
+`

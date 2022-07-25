@@ -57,7 +57,7 @@ Em breve na página Lista de Pokemons pretendemos adicionar um campo de busca po
 
 🔗
 ## Link do Projeto 
-[Nosso Pokedex](pokedex16-battle.surge.sh/)
+[Nosso Pokedex](https://pokedex16-battle.surge.sh/)
 
 
 
